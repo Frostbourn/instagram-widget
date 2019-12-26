@@ -4,11 +4,12 @@
 
 [Demo](https://jakubskowronski.com/instagram-widget)
 
+You can fetch your last 12 Instagram photos without the usage of Instagram API, which requires a user to authenticate.
 
 ### How to use:
 It requires [axios](https://github.com/axios/axios#installing) to work! 
 
-Add Instagram widget files just in your site header as like as bellow:
+Add required files in your site header as like as bellow:
 
 ```html
 <link href="/src/instagram-widget.min.css" rel="stylesheet">
@@ -16,7 +17,7 @@ Add Instagram widget files just in your site header as like as bellow:
 <script src="/src/instagram-widget.min.js"></script>
 ```
 
-Now its time to add Instagram Widget in your site.
+Embed the code below wherever you want the widget to be displayed:
 
 ```html
 <div data-username="instagram"
