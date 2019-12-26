@@ -1,0 +1,10 @@
+{
+  "name": "instagram-widget",
+  "version": "1.0.0",
+  "description": "Simple Instagram widget for pages",
+  "main": "/src/script.js",
+  "scripts": {},
+  "author": "Jakub Skowroński",
+  "license": "MIT",
+  "dependencies": {}
+}
