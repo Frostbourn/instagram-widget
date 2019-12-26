@@ -1,7 +1,7 @@
 (async () => {
     try {
         const container = document.querySelector('#instagram-widget')
-        const id = container.dataset.user
+        const id = container.dataset.username
         const color = container.dataset.color
         const columns = container.dataset.columns
         const showHeader = container.dataset.header

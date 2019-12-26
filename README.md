@@ -1,28 +1,21 @@
-# JS Facebook Likebox Slider
+# Instagram widget for pages
 
-Take a look at the [demo](https://jakubskowronski.com/joomla).
+[Demo](https://jakubskowronski.com/instagram-widget).
 
-#### Version: 6.5.6
-
-Display Facebook and Twitter on your site in beautiful box which slides in from page edge in a handy way! Very easy to configure. Module can be activated with mouse move. The advantage of this module is a way that it presents to User. It takes very little space on your site and can be viewed at any time because toggle-tab does not scroll with page and always stays in one place.
-
-The visitors can enjoy our plugin on any screen, including Tablets and Mobile Devices in special responsive design.
-
-### Features:
-* Lightweight
-* Pure CSS animations / Rocket fast
-* Responsive / Special mobile design
-* Two icons styles
-* All browsers working
-* Super easy to install and configure
+#### Version: 1.0.0
 
 
-## Configuration
+### How to use:
+Add Instagram widget files just in your site header as like as bellow:
 
-### Follow these steps to find your Facebook ID 
-Facebook Page plugin only works with pages, not with the personal profiles or groups! First, you’ll need to [retrieve your Facebook page ID](https://www.facebook.com/help/1503421039731588).
+<link href="/src/instagram-widget.min.css" rel="stylesheet">
+<script src="/src/instagram-widget.min.js"></script>
 
+Now its time to add Instagram Widget in your site.
 
-### Follow these steps to find your Twitter ID 
-* Log in to twitter.com and [visit your account settings page](https://help.twitter.com/en/managing-your-account/change-twitter-handle) to get your ID.
-
+<div data-username="instagram"
+     data-header="yes"
+     data-width="100%"
+     data-columns="3"
+     data-color="#3897f0">
+</div>
