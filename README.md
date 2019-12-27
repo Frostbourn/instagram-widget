@@ -1,5 +1,6 @@
 # Instagram widget for pages
 The best responsive Instagram widget for websites absolutely free! You can fetch your last 12 Instagram photos without the usage of Instagram API, which requires a user to authenticate.
+
 [Demo](https://jakubskowronski.com/instagram-widget)
 
 ## Requirements:
