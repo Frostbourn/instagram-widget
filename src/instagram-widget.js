@@ -116,7 +116,7 @@
                 // Widget width 
                 container.style.width = widget.width
             });
-    } catch {
-        alert('[Instagram Widget] - The username does not exist')
+    } catch(e) {
+        throw(e)
     }
 })();
