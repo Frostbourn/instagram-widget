@@ -13,12 +13,9 @@
             logo: document.createElement('span'),
             panel: document.createElement('div'),
             gallery: document.createElement('div'),
-            button: document.createElement('a'),
+            button: document.createElement('a')
         }
         const nFormat = (num) => {
-            if (num >= 1000000000) {
-                return (num / 1000000000).toFixed(1).replace(/\.0$/, '') + 'g';
-            }
             if (num >= 1000000) {
                 return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'm';
             }
