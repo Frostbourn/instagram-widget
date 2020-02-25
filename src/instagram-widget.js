@@ -24,7 +24,7 @@
             }
             return num;
         }
-        const url = await axios.get(`https://www.instagram.com/${widget.id}`)
+            const url = await axios.get(`https://www.instagram.com/${widget.id}`)
             .then(response => {
                 let instagramRegExp = new RegExp(/<script type="text\/javascript">window\._sharedData = (.*);<\/script>/)
                 let value = response.data.match(instagramRegExp)[1]
@@ -113,7 +113,7 @@
                 // Widget width 
                 container.style.width = widget.width
             });
-    } catch(e) {
-        throw(e)
+    } catch(err) {
+        throw(err)
     }
 })();
