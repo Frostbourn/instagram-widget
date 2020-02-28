@@ -19,7 +19,7 @@
         widget.gallery.style.columns = widget.columns;
         widget.header.style.backgroundColor = widget.color;
         widget.button.style.backgroundColor = widget.color;
-        container.style.width = widget.width;
+        container.style.maxWidth = widget.width;
 
         const nFormat = (num) => {
             if (num >= 1000000) {
@@ -103,7 +103,7 @@
 
                     div.setAttribute('class', 'img-desc');
 
-                    p.innerHTML = photo.caption + '<br/> &#x2764; ' + nFormat(photo.likesCount);
+                    p.innerHTML = photo.caption + '<br/><span>&#x2764;</span> ' + nFormat(photo.likesCount);
 
                     a.appendChild(img);
                     a.appendChild(div);
