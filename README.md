@@ -18,7 +18,8 @@ Add required files in your site header as like as bellow:
 Embed the code below wherever you want the widget to be displayed:
 
 ```html
-<div data-username="instagram"
+<div class="instagram__widget"
+     data-username="instagram"
      data-header="yes"
      data-width="80vw"
      data-columns="4"
