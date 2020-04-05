@@ -10,15 +10,15 @@ The best responsive Instagram widget for websites absolutely free! You can fetch
 Add required files in your site header as like as bellow:
 
 ```html
-<link href="/src/instagram-widget.min.css" rel="stylesheet">
+<link href="/src/css/instagram-widget.min.css" rel="stylesheet">
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="/src/instagram-widget.min.js"></script>
+<script src="/src/js/instagram-widget.min.js"></script>
 ```
 
 Embed the code below wherever you want the widget to be displayed:
 
 ```html
-<div class="instagram__widget"
+<div class="instagram-widget"
      data-username="instagram"
      data-header="yes"
      data-width="80vw"
