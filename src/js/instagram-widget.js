@@ -19,7 +19,7 @@
             gallery: document.createElement('div'),
             button: document.createElement('a')
         };
-        
+
         widgetElements.gallery.style.columns = widgetSettings.columns;
         widgetElements.header.style.backgroundColor = widgetSettings.color;
         widgetElements.button.style.backgroundColor = widgetSettings.color;
@@ -71,7 +71,7 @@
                 widgetElements.gallery.classList.add('widget-gallery');
                 container.appendChild(widgetElements.gallery);
                 let edges = userData.edge_owner_to_timeline_media.edges.splice(0, 12);
-                
+
                 let photos = edges.map(({
                     node
                 }) => {
@@ -79,7 +79,7 @@
                         url: `https://www.instagram.com/p/${node.shortcode}/`,
                         thumbnailUrl: node.thumbnail_src,
                         displayUrl: node.display_url,
-                        caption: node.edge_media_to_caption.edges[0].node.text,
+                        caption: node.edge_media_to_caption.edges[0],
                         likesCount: node.edge_liked_by.count
                     }
                 });
@@ -89,11 +89,21 @@
                 widgetElements.button.setAttribute('target', '_blank');
                 widgetElements.button.textContent += 'View on Instagram';
                 container.appendChild(widgetElements.button);
-                
+
                 return photos;
             })
             .then(photos => {
                 photos.forEach(photo => {
+                    if (photo.caption) {
+                        photo.caption = photo.caption.node.text;
+                    } else {
+                        photo.caption = " ";
+                    }
+                    if (photo.likesCount > 0) {
+                        photo.likesCount = '<br/><span>&#x2764;</span> ' + nFormat(photo.likesCount)
+                    } else {
+                        photo.likesCount = " ";
+                    }
                     let a = document.createElement('a');
                     let img = document.createElement('img');
                     let div = document.createElement('div');
@@ -110,7 +120,7 @@
 
                     div.setAttribute('class', 'widget-gallery__caption');
 
-                    p.innerHTML = photo.caption + '<br/><span>&#x2764;</span> ' + nFormat(photo.likesCount);
+                    p.innerHTML = photo.caption + photo.likesCount;
 
                     a.appendChild(img);
                     a.appendChild(div);
