@@ -1,4 +1,5 @@
 const container = document.querySelector('.instagram-widget');
+container.style.maxWidth = widgetSetting.width;
 
 const widgetSetting = {
     id: container.dataset.user,
@@ -6,8 +7,6 @@ const widgetSetting = {
     showHeader: container.dataset.header,
     width: container.dataset.width
 };
-
-container.style.maxWidth = widgetSetting.width;
 
 let header = document.createElement('div');
 let statsPanel = document.createElement('div');
@@ -36,7 +35,6 @@ const nFormat = (num) => {
             })
             .then(userData => {
                 if ((widgetSetting.showHeader) == 'yes') {
-                    console.log(userData);
                     header.classList.add('widget-header');
                     header.style.backgroundColor = widgetSetting.color;
                     header.innerHTML = `
@@ -52,7 +50,6 @@ const nFormat = (num) => {
                          <p class=widget-panel__stats>${nFormat(userData.edge_followed_by.count)}<br /> <span>followers</span>
                          <p class=widget-panel__stats>${nFormat(userData.edge_follow.count)}<br /> <span>following</span>`;
                     container.appendChild(statsPanel);
-
                 } else if ((widgetSetting.showHeader) == 'no') {
                     container.style.border = 'none';
                     container.style.boxShadow = 'none';
@@ -73,7 +70,6 @@ const nFormat = (num) => {
                         likesCount: node.edge_liked_by.count
                     }
                 });
-
                 return photos;
             })
             .then(photos => {

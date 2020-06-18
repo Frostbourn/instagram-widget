@@ -22,7 +22,6 @@ Embed the code below wherever you want the widget to be displayed:
      data-username="instagram"
      data-header="yes"
      data-width="80vw"
-     data-columns="4"
      data-color="#3897f0">
 </div>
 ```
