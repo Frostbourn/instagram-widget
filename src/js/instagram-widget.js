@@ -1,5 +1,4 @@
 const container = document.querySelector('.instagram-widget');
-container.style.maxWidth = widgetSetting.width;
 
 const widgetSetting = {
     id: container.dataset.user,
@@ -7,6 +6,8 @@ const widgetSetting = {
     showHeader: container.dataset.header,
     width: container.dataset.width
 };
+
+container.style.maxWidth = widgetSetting.width;
 
 let header = document.createElement('div');
 let statsPanel = document.createElement('div');
