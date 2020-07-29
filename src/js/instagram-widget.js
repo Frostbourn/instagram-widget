@@ -78,19 +78,13 @@ const nFormat = (num) => {
                 photos.forEach(photo => {
                     if (photo.caption) {
                         photo.caption = photo.caption.node.text;
-                    } else {
-                        photo.caption = " ";
-                    }
+                    } 
                     if (photo.likesCount > 0) {
                         photo.likesCount = '<span>&#x2764;</span> ' + nFormat(photo.likesCount)
-                    } else {
-                        photo.likesCount = " ";
-                    }
+                    } 
                     if (photo.commentCount > 0) {
                         photo.commentCount = '<span>&#x1F4AC;</span> ' + nFormat(photo.commentCount)
-                    } else {
-                        photo.commentCount = " ";
-                    }
+                    } 
 
                     let picture = document.createElement('p');
                     picture.innerHTML = `
@@ -107,7 +101,7 @@ const nFormat = (num) => {
                 });
 
                 footer.classList.add('widget-footer');
-                footer.innerHTML = `<a href="https://instagram.com/${widgetSetting.id}" class="widget-button" target="_blank" style="${widgetSetting.color}">View on Instagram</a> `;
+                footer.innerHTML = `<a href="https://instagram.com/${widgetSetting.id}" class="widget-button" target="_blank" style="background-color:${widgetSetting.color}">View on Instagram</a> `;
                 container.appendChild(footer);
             });
     } catch (e) {
