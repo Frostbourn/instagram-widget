@@ -1,4 +1,4 @@
-# Fetch Instagram profiles photos without API
+# InstagramFeed - Instagram profiles photos without API
 You can fetch your last 12 Instagram photos without the usage of Instagram API, which requires a user to authenticate.
 
 [Demo](https://jakubskowronski.com/instagram-widget)

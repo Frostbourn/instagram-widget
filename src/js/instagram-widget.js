@@ -58,8 +58,8 @@ const nFormat = (num) => {
 
                 gallery.classList.add('widget-gallery');
                 container.appendChild(gallery);
-
                 let edges = userData.edge_owner_to_timeline_media.edges.splice(0, 12);
+                console.log(edges);
                 let photos = edges.map(({
                     node
                 }) => {
@@ -67,31 +67,43 @@ const nFormat = (num) => {
                         url: `https://www.instagram.com/p/${node.shortcode}/`,
                         thumbnailUrl: node.thumbnail_src,
                         displayUrl: node.display_url,
-                        caption: node.edge_media_to_caption.edges[0].node.text,
-                        likesCount: node.edge_liked_by.count
+                        caption: node.edge_media_to_caption.edges[0],
+                        likesCount: node.edge_liked_by.count,
+                        commentCount: node.edge_media_to_comment.count
                     }
                 });
                 return photos;
             })
             .then(photos => {
-                photos.forEach(({
-                    url,
-                    thumbnailUrl,
-                    caption,
-                    likesCount
-                }) => {
-                    let photo = document.createElement('p');
-                    photo.innerHTML = `
-                    <a href="${url}" target="_blank" rel="noopener noreferrer" class="widget-gallery__link">
-                        <img src="${thumbnailUrl}" alt="${caption}" class="widget-gallery__image">
+                photos.forEach(photo => {
+                    if (photo.caption) {
+                        photo.caption = photo.caption.node.text;
+                    } else {
+                        photo.caption = " ";
+                    }
+                    if (photo.likesCount > 0) {
+                        photo.likesCount = '<span>&#x2764;</span> ' + nFormat(photo.likesCount)
+                    } else {
+                        photo.likesCount = " ";
+                    }
+                    if (photo.commentCount > 0) {
+                        photo.commentCount = '<span>&#x1F4AC;</span> ' + nFormat(photo.commentCount)
+                    } else {
+                        photo.commentCount = " ";
+                    }
+
+                    let picture = document.createElement('p');
+                    picture.innerHTML = `
+                    <a href="${photo.url}" target="_blank" rel="noopener noreferrer" class="widget-gallery__link">
+                        <img src="${photo.thumbnailUrl}" alt="${photo.caption}" class="widget-gallery__image">
                         <div class="widget-gallery__caption">
-                            <p>${caption}</br>
-                                <span>&#x2764;</span> ${nFormat(likesCount)}
+                            <p>${photo.caption}</br>
+                               ${photo.likesCount} ${photo.commentCount}</br>
                             </p>
                         </div>
                     </a>
                     `
-                    gallery.appendChild(photo);
+                    gallery.appendChild(picture);
                 });
 
                 footer.classList.add('widget-footer');
