@@ -78,13 +78,19 @@ const nFormat = (num) => {
                 photos.forEach(photo => {
                     if (photo.caption) {
                         photo.caption = photo.caption.node.text;
-                    } 
+                    } else {
+                        photo.caption = " ";
+                    }
                     if (photo.likesCount > 0) {
                         photo.likesCount = '<span>&#x2764;</span> ' + nFormat(photo.likesCount)
-                    } 
+                    } else {
+                        photo.likesCount = " ";
+                    }
                     if (photo.commentCount > 0) {
                         photo.commentCount = '<span>&#x1F4AC;</span> ' + nFormat(photo.commentCount)
-                    } 
+                    } else {
+                        photo.commentCount = " ";
+                    }
 
                     let picture = document.createElement('p');
                     picture.innerHTML = `
