@@ -59,7 +59,7 @@ const nFormat = (num) => {
                 gallery.classList.add('widget-gallery');
                 container.appendChild(gallery);
                 let edges = userData.edge_owner_to_timeline_media.edges.splice(0, 12);
-                console.log(edges);
+
                 let photos = edges.map(({
                     node
                 }) => {
@@ -110,7 +110,8 @@ const nFormat = (num) => {
                 footer.innerHTML = `<a href="https://instagram.com/${widgetSetting.id}" class="widget-button" target="_blank" style="background-color:${widgetSetting.color}">View on Instagram</a> `;
                 container.appendChild(footer);
             });
-    } catch (e) {
-        throw ('Unable to retrieve photos. Reason: ' + e);
+    } 
+    catch (err) {
+        throw ('Unable to retrieve photos. Reason: ' + err);
     }
 })();
