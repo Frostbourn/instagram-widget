@@ -112,6 +112,6 @@ const nFormat = (num) => {
             });
     } 
     catch (err) {
-        throw ('Unable to retrieve photos. Reason: ' + err);
+        console.log('Unable to retrieve photos. Reason: ' + err);
     }
 })();
