@@ -1,0 +1,197 @@
+.instagram__widget {
+  margin: 0 auto;
+  padding-bottom: 5px;
+  border-radius: 20px;
+  box-shadow: 0px 6px 15px -10px rgba(0, 0, 0, 0.75);
+}
+.widget__header {
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: none !important;
+  box-shadow: inset 0 0 100px rgba(255, 255, 255, 0), 0 1px 0 0 rgba(0, 0, 0, 0.05);
+  background: #3897f0;
+  border-radius: 20px 20px 0 0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px 20px;
+}
+.header__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  vertical-align: middle;
+  border-style: none;
+}
+.header__username {
+  padding-left: 15px;
+  width: 35vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 450px) {
+  .header__username {
+    width: 35vw;
+    line-height: 14px;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+.header__logo {
+  margin-left: auto;
+}
+.header__logo svg {
+  fill: #ffffff;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.widget__panel {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+  box-shadow: inset 0 0 100px rgba(255, 255, 255, 0), 0 1px 0 0 rgba(0, 0, 0, 0.05);
+}
+.panel__stats {
+  width: 33.3%;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+.panel__stats span {
+  color: #999;
+  font-weight: 400;
+}
+.widget__gallery {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 15px;
+  margin: 15px;
+}
+@media (max-width: 850px) {
+  .widget__gallery {
+    grid-template-columns: auto auto auto;
+  }
+  .widget__gallery .photo__caption p {
+    font-size: 0.9em !important;
+  }
+}
+@media (max-width: 600px) {
+  .widget__gallery {
+    grid-template-columns: auto auto;
+  }
+  .widget__gallery .photo__caption p {
+    font-size: 0.8em !important;
+  }
+}
+@media (max-width: 450px) {
+  .widget__gallery {
+    grid-template-columns: auto;
+  }
+  .widget__gallery .photo__caption p {
+    font-size: 0.7em !important;
+  }
+}
+@media (max-width: 375px) {
+  .widget__gallery .photo__caption p {
+    font-size: 1em !important;
+  }
+}
+.photo__link {
+  display: block !important;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+}
+.photo__image {
+  max-width: 100%;
+  height: auto;
+  -o-object-fit: contain;
+  object-fit: contain;
+  border-radius: 4px;
+  vertical-align: middle;
+  border-style: none;
+}
+.photo__caption {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ffffff;
+  background: #000000;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: opacity 500ms;
+}
+.photo__caption p {
+  padding: 15px;
+  font-size: 0.9em;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  text-align: center;
+  position: relative;
+}
+.photo__caption span {
+  color: #eb0000;
+}
+a:hover .photo__caption {
+  opacity: 0.75;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.footer__button {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 20px;
+  text-decoration: none;
+  padding: 0 12px;
+  cursor: pointer;
+  background: #3897f0;
+  color: #fff;
+  -webkit-appearance: none;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 1px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 26px;
+  outline: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .footer__button {
+    width: 35vw;
+  }
+}
+.footer__button:hover {
+  background: #126fc6 !important;
+  color: #ffffff;
+  text-decoration: none;
+}
