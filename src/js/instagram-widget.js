@@ -9,10 +9,7 @@ const widgetSettings = {
 
 container.style.maxWidth = widgetSettings.width;
 
-let header = document.createElement("div"),
-  statsPanel = document.createElement("div"),
-  gallery = document.createElement("div"),
-  footer = document.createElement("div");
+const { header, statsPanel, gallery, footer } = document.createElement("div");
 
 const nFormat = (num) => {
   return Math.abs(num) > 999999999
@@ -29,12 +26,12 @@ const nFormat = (num) => {
     await axios
       .get(`https://www.instagram.com/${widgetSettings.id}`)
       .then((fetchData) => {
-        let instagramRegExp = new RegExp(
+        const instagramRegExp = new RegExp(
           /<script type="text\/javascript">window\._sharedData = (.*);<\/script>/
         );
-        let values = fetchData.data.match(instagramRegExp)[1];
-        let parsedResponse = JSON.parse(values);
-        let userData = parsedResponse.entry_data.ProfilePage[0].graphql.user;
+        const values = fetchData.data.match(instagramRegExp)[1];
+        const parsedResponse = JSON.parse(values);
+        const userData = parsedResponse.entry_data.ProfilePage[0].graphql.user;
         return userData;
       })
       .then((userData) => {
@@ -67,8 +64,8 @@ const nFormat = (num) => {
         // Create image gallery
         gallery.classList.add("widget__gallery");
         container.appendChild(gallery);
-        let edges = userData.edge_owner_to_timeline_media.edges.splice(0, 12);
-        let photos = edges.map(({ node }) => {
+        const edges = userData.edge_owner_to_timeline_media.edges.splice(0, 12);
+        const photos = edges.map(({ node }) => {
           return {
             url: `https://www.instagram.com/p/${node.shortcode}/`,
             thumbnailUrl: node.thumbnail_src,
@@ -82,7 +79,7 @@ const nFormat = (num) => {
       })
       .then((photos) => {
         photos.forEach((photo) => {
-          let picture = document.createElement("p");
+          const picture = document.createElement("p");
           photo.caption = photo.caption ? photo.caption.node.text : "";
           photo.likesCount =
             photo.likesCount > 0
