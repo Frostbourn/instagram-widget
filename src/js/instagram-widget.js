@@ -1,27 +1,20 @@
 const container = document.querySelector(".instagram__widget");
 
-const widgetSettings = {
-  id: container.dataset.user,
-  color: container.dataset.color,
-  showHeader: container.dataset.header,
-  width: container.dataset.width,
-};
-
-container.style.maxWidth = widgetSettings.width;
-
-const { header, statsPanel, gallery, footer } = document.createElement("div");
-
-const nFormat = (num) => {
-  return Math.abs(num) > 999999999
-    ? Math.sign(num) * (Math.abs(num) / 1000000000).toFixed(1) + "B"
-    : Math.abs(num) > 999999
-    ? Math.sign(num) * (Math.abs(num) / 1000000).toFixed(1) + "M"
-    : Math.abs(num) > 999
-    ? Math.sign(num) * (Math.abs(num) / 1000).toFixed(1) + "k"
-    : Math.sign(num) * Math.abs(num);
-};
-
 (async () => {
+  const widgetSettings = {
+    id: container.dataset.user,
+    color: container.dataset.color,
+    showHeader: container.dataset.header,
+    width: container.dataset.width,
+  };
+
+  container.style.maxWidth = widgetSettings.width;
+
+  const header = document.createElement("div");
+  const statsPanel = document.createElement("div");
+  const gallery = document.createElement("div");
+  const footer = document.createElement("div");
+
   try {
     await axios
       .get(`https://www.instagram.com/${widgetSettings.id}`)
@@ -80,6 +73,7 @@ const nFormat = (num) => {
       .then((photos) => {
         photos.forEach((photo) => {
           const picture = document.createElement("p");
+          picture.classList.add("photo");
           photo.caption = photo.caption ? photo.caption.node.text : "";
           photo.likesCount =
             photo.likesCount > 0
@@ -110,3 +104,13 @@ const nFormat = (num) => {
     console.log("Unable to retrieve photos. Reason: " + err);
   }
 })();
+
+const nFormat = (num) => {
+  return Math.abs(num) > 999999999
+    ? Math.sign(num) * (Math.abs(num) / 1000000000).toFixed(1) + "B"
+    : Math.abs(num) > 999999
+    ? Math.sign(num) * (Math.abs(num) / 1000000).toFixed(1) + "M"
+    : Math.abs(num) > 999
+    ? Math.sign(num) * (Math.abs(num) / 1000).toFixed(1) + "k"
+    : Math.sign(num) * Math.abs(num);
+};
