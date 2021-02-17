@@ -23,8 +23,6 @@ const fetchData = async (url) => {
     const data = await fetchData(
       `https://www.instagram.com/${widgetSettings.id}`
     );
-    //.then((data) => {
-    console.log(data);
     container.style.maxWidth = widgetSettings.width;
 
     if (widgetSettings.showHeader) {
