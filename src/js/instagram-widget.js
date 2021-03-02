@@ -15,7 +15,7 @@ const options = {
   url: "https://instagram40.p.rapidapi.com/account-info",
   params: { username: `${settings.id}` },
   headers: {
-    "x-rapidapi-key": "your_api_key",
+    "x-rapidapi-key": "1a4baacd9cmsh2cf61313120ea95p12d8efjsn0e2f0943092d",
     "x-rapidapi-host": "instagram40.p.rapidapi.com",
   },
 };
@@ -24,7 +24,6 @@ const options = {
   try {
     await axios.request(options).then(function (res) {
       const data = res.data;
-      console.log(data);
       container.style.maxWidth = settings.width;
 
       if (settings.showHeader) {
