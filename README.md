@@ -1,18 +1,13 @@
 # InstagramFeed - Instagram profiles photos & stats
 Fetch last 12 Instagram photos & profile stats.
-
-[Demo](https://jakubskowronski.com/instagram-widget)
-
-## Requirements:
-- [Axios](https://github.com/axios/axios#installing)
-
 ## How to use:
-Add required files in your site header as like as bellow:
+1. Create RapidAPI access token at here: [https://rapidapi.com](https://rapidapi.com/restyler/api/instagram40/endpoints)
+2. Add newly created key into ```instagram-widget.js``` file.
+3. Add required files in your site header as like as bellow:
 
 ```html
-<link href="/src/css/instagram-widget.min.css" rel="stylesheet">
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="/src/js/instagram-widget.min.js"></script>
+<link href="/src/css/instagram-widget.css" rel="stylesheet">
+<script src="/src/js/instagram-widget.js"></script>
 ```
 
 Embed the code below wherever you want the widget to be displayed:
