@@ -10,20 +10,20 @@ const settings = {
   width: container.dataset.width,
 };
 
-const options = {
-  method: "GET",
-  url: "https://instagram40.p.rapidapi.com/account-info",
-  params: { username: `${settings.id}` },
-  headers: {
-    "x-rapidapi-key": "1a4baacd9cmsh2cf61313120ea95p12d8efjsn0e2f0943092d",
-    "x-rapidapi-host": "instagram40.p.rapidapi.com",
-  },
-};
-
 (async () => {
   try {
-    await axios.request(options).then(function (res) {
-      const data = res.data;
+    fetch(
+      "https://instagram40.p.rapidapi.com/proxy?url=https%3A%2F%2Fwww.instagram.com%2Fgraphql%2Fquery%2F%3Fquery_hash%3De769aa130647d2354c40ea6a439bfc08%26variables%3D%257B%2522id%2522%253A%25221226157729%2522%252C%2522first%2522%253A%25221%2522%252C%2522after%2522%253A%2522%2522%257D",
+      {
+        method: "GET",
+        headers: {
+          "x-rapidapi-key": "rapid-key-here",
+          "x-rapidapi-host": "instagram40.p.rapidapi.com",
+        },
+      }
+    ).then((response) => {
+      console.log(response);
+      const data = response.data;
       container.style.maxWidth = settings.width;
 
       if (settings.showHeader) {
