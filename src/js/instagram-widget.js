@@ -22,7 +22,6 @@ const settings = {
         },
       }
     ).then((response) => {
-      console.log(response);
       const data = response.data;
       container.style.maxWidth = settings.width;
 
